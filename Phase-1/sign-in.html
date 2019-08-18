@@ -1,4 +1,4 @@
-<!-- User log-in Page -->
+<!-- Log-in Page -->
 
 <html>
 
@@ -9,6 +9,8 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="script.js"></script>
 </head>
 
 <body>
@@ -16,42 +18,49 @@
     <div class="container-fluid">
         <div class="row">
             <div class="container-fluid" id="logo-header">
-                <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container">
                     <div class="row">
-                        <div class="col-sm-2 px-0">
-                            <img src="images/logo.jpg" alt="" id="logo">
+                        <div class="col-sm-1 px-5">
+                            <a href="home.html"><img src="images/logo.jpg" alt="" id="logo"></a>
                         </div>
-                        <div class="col-sm-16 mx-3" id="logo-text">
-                            <h2 id="navbar-brand">Mentor On Demand</h2>
+                        <div class="col-sm-5 col-mx-0" id="logo-text">
+                            <a href="home.html" class="navbar-brand">Mentor On Demand</a>
+                        </div>
+                        <div class="col justify-content-end">
+                            <ul class="nav justify-content-end navbar-dark">
+                                <li class="nav-item text-white">
+                                    <a class="nav-link active" href="home.html"><i class='fas fa-home'></i>  Home</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                </nav>
+                </div>
             </div>
         </div>
 
-        <div class="row  justify-content-center">
+        <div class="row  justify-content-center" id="content">
             <aside class="col-sm-4">
                 <div class="card">
                     <article class="card-body">
                         <a href="sign-up.html" class="float-right btn btn-outline-primary">Sign up</a>
                         <h4 class="card-title mb-4 mt-1">Sign in</h4>
-                        <form>
+                        <form name="logInForm" onsubmit="return validateLogIn()">
                             <div class="form-group">
-                                <label>Username/e-mail :</label>
-                                <input name="" class="form-control" placeholder="example@mail.com" type="email">
+                                <label for="email">Username/e-mail :</label>
+                                <input id="email" class="form-control" placeholder="example@mail.com" type="email" name="email">
                             </div>
                             <!-- form-group// -->
                             <div class="form-group">
-                                <label>Password :</label>
-                                <input class="form-control" placeholder="********" type="password">
+                                <label for="password">Password :</label>
+                                <input id="password" class="form-control" placeholder="********" type="password" name="password">
                             </div>
                             <!-- form-group// -->
                             <div class="form-group">
-                                <label>Select account type :</label>
-                                <select class="form-control">
+                                <label for="account-type">Select account type :</label>
+                                <select class="form-control" id="account-type" name="account-type">
                                     <option selected>-- select account type --</option>
-                                    <option>Trainee</option>
-                                    <option>Trainer</option>
+                                    <option value="Trainee">Trainee</option>
+                                    <option value="Trainer">Trainer</option>
                                 </select>
                             </div>
                             <!-- form-group// -->

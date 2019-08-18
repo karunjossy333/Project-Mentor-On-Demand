@@ -1,4 +1,4 @@
-<!-- User log-in Page -->
+<!-- Registration Page -->
 
 <html>
 
@@ -9,6 +9,10 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <style>
+
+    </style>
 </head>
 
 <body>
@@ -16,25 +20,34 @@
     <div class="container-fluid">
         <div class="row">
             <div class="container-fluid" id="logo-header">
-                <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container">
                     <div class="row">
-                        <div class="col-sm-2 px-0">
-                            <img src="images/logo.jpg" alt="" id="logo">
+                        <div class="col-sm-1 px-5">
+                            <a href="home.html"><img src="images/logo.jpg" alt="" id="logo"></a>
                         </div>
-                        <div class="col-sm-16 mx-3" id="logo-text">
-                            <h2 id="navbar-brand">Mentor On Demand</h2>
+                        <div class="col-sm-5 col-mx-0" id="logo-text">
+                            <a href="home.html">
+                                <h2 id="navbar-brand">Mentor On Demand</h2>
+                            </a>
+                        </div>
+                        <div class="col justify-content-end">
+                            <ul class="nav justify-content-end navbar-dark">
+                                <li class="nav-item text-white">
+                                    <a class="nav-link active" href="home.html"><i class='fas fa-home'></i>  Home</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                </nav>
+                </div>
             </div>
         </div>
 
-        <div class="row  justify-content-center">
+        <div class="row  justify-content-center bg-dark" id="content">
             <aside class="col-sm-4">
                 <div class="card">
                     <article class="card-body">
-                        <a href="sign-up.html" class="float-right btn btn-outline-primary">Sign up</a>
-                        <h4 class="card-title mb-4 mt-1">Sign in</h4>
+                        <a href="sign-in.html" class="float-right btn btn-outline-primary">Log In</a>
+                        <h4 class="card-title mb-4 mt-1">Register</h4>
                         <form>
                             <div class="form-group">
                                 <label>Username/e-mail :</label>
@@ -66,6 +79,74 @@
 
             </aside>
         </div>
+
+        <div class="row  justify-content-center bg-dark">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Register</div>
+                    <div class="card-body">
+                        <form name="my-form" onsubmit="return validform()" action="success.php" method="">
+                            <div class="form-group row">
+                                <label for="full_name" class="col-md-4 col-form-label text-md-right">Full Name</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="full_name" class="form-control" name="full-name">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="email_address" class="form-control" name="email-address">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="user_name" class="col-md-4 col-form-label text-md-right">User Name</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="user_name" class="form-control" name="username">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="phone_number" class="col-md-4 col-form-label text-md-right">Phone Number</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="phone_number" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="present_address" class="col-md-4 col-form-label text-md-right">Present Address</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="present_address" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="permanent_address" class="col-md-4 col-form-label text-md-right">Permanent Address</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="permanent_address" class="form-control" name="permanent-address">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="nid_number" class="col-md-4 col-form-label text-md-right"><abbr
+                                                    title="National Id Card">NID</abbr> Number</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="nid_number" class="form-control" name="nid-number">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                            Register
+                                            </button>
+                            </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     </div>
 
