@@ -18,3 +18,12 @@ function validateLogIn() {
     }
     return false;
 }
+
+function training_result() {
+    var x = document.forms["trainingForm"]["trainingTechnology"].value;
+    if (x == "spring") {
+        var y = document.getElementById("training-result");
+        y.style.display = "block";
+    }
+    return false;
+}
