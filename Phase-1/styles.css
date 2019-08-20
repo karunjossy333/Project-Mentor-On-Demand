@@ -76,7 +76,7 @@ body {
 #search-body,
 #mentor-body {
     height: 467px;
-    padding-top: 20px;
+    margin-top: 20px;
 }
 
 .card-img {
@@ -89,4 +89,9 @@ body {
 #user-menu,
 #mentor-nemu {
     margin-top: 10px;
+}
+
+#menu-content {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
