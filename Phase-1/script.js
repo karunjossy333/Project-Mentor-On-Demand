@@ -27,3 +27,10 @@ function training_result() {
     }
     return false;
 }
+
+function addskill(res) {
+    var id = "#" + res;
+    $(id).appendTo('#mentor-skills');
+    document.getElementById(res).disabled = true;
+    return false;
+}
