@@ -1,16 +1,16 @@
-<!-- Mentor landing Page -->
+<!-- Mentor edit skill Page -->
 
 <html>
 
 <head>
     <title>Mentor Menu</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style/styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-    <script src="script.js"></script>
+    <script src="script/script.js"></script>
 </head>
 
 <body>
@@ -32,7 +32,7 @@
                                     <a class="nav-link active" href="mentor-landing-page.html"><i class='fas fa-home'></i>  Home</a>
                                 </li>
                                 <li class="nav-item text-white">
-                                    <a class="nav-link active" href="mentor-landing-page.html"><i class="fas fa-user"></i>  Hi, Mentor</a>
+                                    <a class="nav-link active" href="mentor-profile.html"><i class="fas fa-user"></i>  Hi, Mentor</a>
                                 </li>
                                 <li class="nav-item text-white">
                                     <a class="nav-link active" href="#"><i class="fas fa-bell"></i>  Notifications</a>
@@ -49,7 +49,7 @@
 
         <div class="container" id="search-body">
             <div class="row justify-content-center">
-                <ul class="nav nav-pills nav-fill" id="user-menu">
+                <ul class="nav nav-pills nav-fill" id="mentor-menu">
                     <li class="nav-item">
                         <a class="nav-link" href="mentor-landing-page.html"> Training in Progress </a>
                     </li>
@@ -59,6 +59,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="mentor-edit-skills.html"> Edit Skills </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mentor-payments.html"> Payments </a>
+                    </li>
                 </ul>
             </div>
             <div class="row justify-content-center top-buffer">
@@ -66,21 +69,21 @@
                     <h3>Available Technologies</h3>
                 </div>
             </div>
-            <div class="row justify-content-center top-buffer" id="available">
+            <div class="row justify-content-center top-buffer" id="available-skills">
                 <div class="col-sm-auto" id="mysql">
-                    <button type="button" class="btn btn-info" onclick="return addskill('mysql')">MySQL</button>
+                    <button type="button" class="btn btn-info" onclick="return addskill('mysql', 'mysql-button')" id="mysql-button">MySQL</button>
                 </div>
                 <div class="col-sm-auto" id="bootstrap">
-                    <button type="button" class="btn btn-info" onclick="return addskill('bootstrap')">Bootstrap</button>
+                    <button type="button" class="btn btn-info" onclick="return addskill('bootstrap', 'bootstrap-button')" id="bootstrap-button">Bootstrap</button>
                 </div>
                 <div class="col-sm-auto" id="java">
-                    <button type="button" class="btn btn-info" onclick="return addskill('java')">Java</button>
+                    <button type="button" class="btn btn-info" onclick="return addskill('java', 'java-button')" id="java-button">Java</button>
                 </div>
                 <div class="col-sm-auto" id="angular">
-                    <button type="button" class="btn btn-info" onclick="return addskill('angular')">Angular</button>
+                    <button type="button" class="btn btn-info" onclick="return addskill('angular', 'angular-button')" id="angular-button">Angular</button>
                 </div>
                 <div class="col-sm-auto" id="css">
-                    <button type="button" class="btn btn-info" onclick="return addskill('css')">CSS</button>
+                    <button type="button" class="btn btn-info" onclick="return addskill('css', 'css-button')" id="css-button">CSS</button>
                 </div>
             </div>
             <div class="row justify-content-center top-buffer">
@@ -90,7 +93,7 @@
             </div>
             <div class="row justify-content-center top-buffer" id="mentor-skills">
                 <div class="col-sm-auto" id="spring">
-                    <button type="button" class="btn btn-info">Spring</button>
+                    <button type="button" class="btn btn-info" onclick="this.disabled=true;">Spring</button>
                 </div>
             </div>
             <div class="row justify-content-center top-buffer" id="mentor-skills">
@@ -105,7 +108,7 @@
         <div class="col align-self-center">
             <strong>
                 <div class="footer-copyright text-center py-3">© 2019 Copyright :
-                    <a href="home.html" class="footer-brand"> MentorOnDemand.com</a>
+                    <a href="mentor-landing-page.html" class="footer-brand"> MentorOnDemand.com</a>
                 </div>
             </strong>
         </div>

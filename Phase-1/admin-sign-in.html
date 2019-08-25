@@ -1,9 +1,9 @@
-<!-- Log-in Page -->
+<!-- Admin Log-in Page -->
 
 <html>
 
 <head>
-    <title>Sign In</title>
+    <title>Admin Sign In</title>
     <link rel="stylesheet" href="style/styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -21,47 +21,30 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-1 px-5">
-                            <a href="home.html"><img src="images/logo.jpg" alt="" id="logo"></a>
+                            <a href="admin-sign-in.html"><img src="images/logo.jpg" alt="" id="logo"></a>
                         </div>
                         <div class="col-sm-5 col-mx-0" id="logo-text">
-                            <a href="home.html" class="navbar-brand">Mentor On Demand</a>
-                        </div>
-                        <div class="col justify-content-end">
-                            <ul class="nav justify-content-end navbar-dark">
-                                <li class="nav-item text-white">
-                                    <a class="nav-link active" href="home.html"><i class='fas fa-home'></i>  Home</a>
-                                </li>
-                            </ul>
+                            <a href="admin-sign-in.html" class="navbar-brand">Mentor On Demand</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="row  justify-content-center" id="content">
+        <div class="row  justify-content-center mt-5" id="content">
             <aside class="col-sm-4">
                 <div class="card">
                     <article class="card-body">
-                        <a href="sign-up.html" class="float-right btn btn-outline-primary">Sign up</a>
-                        <h4 class="card-title mb-4 mt-1">Sign in</h4>
-                        <form name="logInForm" onsubmit="return validateLogIn()">
+                        <h4 class="card-title mb-4 mt-1"><i class='fa fa-wrench'></i> Admin Sign In</h4>
+                        <form name="adminSignInForm" onsubmit="return validateAdmin()">
                             <div class="form-group">
-                                <label for="email">Username/e-mail :</label>
-                                <input id="email" class="form-control" placeholder="example@mail.com" type="email" name="email">
+                                <label for="admin-username">Admin Username :</label>
+                                <input id="admin-username" class="form-control" placeholder="username" type="text" name="admin-username">
                             </div>
                             <!-- form-group// -->
                             <div class="form-group">
-                                <label for="password">Password :</label>
-                                <input id="password" class="form-control" placeholder="********" type="password" name="password">
-                            </div>
-                            <!-- form-group// -->
-                            <div class="form-group">
-                                <label for="account-type">Select account type :</label>
-                                <select class="form-control" id="account-type" name="account-type">
-                                    <option selected>-- select account type --</option>
-                                    <option value="Trainee">Trainee</option>
-                                    <option value="Trainer">Trainer</option>
-                                </select>
+                                <label for="admin-password">Admin Password :</label>
+                                <input id="admin-password" class="form-control" placeholder="********" type="password" name="admin-password">
                             </div>
                             <!-- form-group// -->
                             <div class="form-group">

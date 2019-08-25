@@ -1,0 +1,157 @@
+<!-- Admin landing Page -->
+
+<html>
+
+<head>
+    <title>Edit Technologies</title>
+    <link rel="stylesheet" href="style/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <script src="script/script.js"></script>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="container-fluid" id="logo-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-1 px-5">
+                            <a href="admin-landing-page.html"><img src="images/logo.jpg" alt="" id="logo"></a>
+                        </div>
+                        <div class="col-sm-5 col-mx-0" id="logo-text">
+                            <a href="admin-landing-page.html" class="navbar-brand">Mentor On Demand</a>
+                        </div>
+                        <div class="col justify-content-end">
+                            <ul class="nav justify-content-end navbar-dark">
+                                <li class="nav-item text-white">
+                                    <a class="nav-link active" href="admin-landing-page.html"><i class="fas fa-user"></i>  Hi, Admin</a>
+                                </li>
+                                <li class="nav-item text-white">
+                                    <a class="nav-link active" href="#"><i class="fas fa-bell"></i>  Notifications</a>
+                                </li>
+                                <li class="nav-item text-white">
+                                    <a class="nav-link active" href="home.html"><i class="fas fa-sign-out-alt"></i>  Log Out</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <ul class="nav nav-pills nav-fill" id="user-menu">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="admin-landing-page.html"> Edit Technologies </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-manage-accounts.html"> Manage User Accounts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-payment-reports.html"> Payment Reports</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-training-reports.html"> Training Reports</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container mt-3">
+            <div class="row bg-light p-3 border">
+                <div class="col-sm-3 justify-content-center">
+                    <p class="h4">Technology</p>
+                </div>
+                <div class="col-sm-3 justify-content-center">
+                    <p class="h4">Fee</p>
+                </div>
+                <div class="col-sm-3 justify-content-center">
+                    <p class="h4">Commission</p>
+                </div>
+                <div class="col-sm-3 justify-content-center">
+                    <p class="h4">Action</p>
+                </div>
+            </div>
+            <div class="row p-3 border">
+                <div class="col-sm-3">
+                    <p>Spring</p>
+                </div>
+                <div class="col-sm-3">
+                    <p>&#8377; 20,000</p>
+                </div>
+                <div class="col-sm-3">
+                    <p>10%</p>
+                </div>
+                <div class="col-sm-3">
+                    <button type="button" class="btn btn-info">Edit</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+            <div class="row p-3 border">
+                <div class="col-sm-3">
+                    <p>Angular</p>
+                </div>
+                <div class="col-sm-3">
+                    <p>&#8377; 25,000</p>
+                </div>
+                <div class="col-sm-3">
+                    <p>8%</p>
+                </div>
+                <div class="col-sm-3">
+                    <button type="button" class="btn btn-info">Edit</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+            <div class="row p-3 border">
+                <div class="col-sm-3">
+                    <p>MySQL</p>
+                </div>
+                <div class="col-sm-3">
+                    <p>&#8377; 30,000</p>
+                </div>
+                <div class="col-sm-3">
+                    <p>12%</p>
+                </div>
+                <div class="col-sm-3">
+                    <button type="button" class="btn btn-info">Edit</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+            <form name="">
+                <div class="row p-3 border">
+                    <div class="col-sm-3">
+                        <input class="form-control" placeholder="Technology" type="text">
+                    </div>
+                    <div class="col-sm-3">
+                        <input class="form-control" placeholder="Fee" type="text">
+                    </div>
+                    <div class="col-sm-3">
+                        <input class="form-control" placeholder="Commission" type="text">
+                    </div>
+                    <div class="col-sm-3">
+                        <button type="button" class="btn btn-success">Add</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="container-fluid mt-3 fixed-bottom" id="footer">
+        <div class="col align-self-center">
+            <strong>
+                <div class="footer-copyright text-center py-3">© 2019 Copyright :
+                    <a href="admin-landing-page.html" class="footer-brand"> MentorOnDemand.com</a>
+                </div>
+            </strong>
+        </div>
+    </div>
+
+</body>
+
+</html>
