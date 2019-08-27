@@ -12,8 +12,11 @@ import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 import { MentorComponent } from './mentor/mentor.component';
 import { AdminComponent } from './admin/admin.component';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
+import { SignInComponent } from './home/sign-in/sign-in.component';
+import { SignUpComponent } from './home/sign-up/sign-up.component';
+import { UserHeaderComponent } from './user/user-header/user-header.component';
+import { UserFooterComponent } from './user/user-footer/user-footer.component';
+import { UserSearchComponent } from './user/user-search/user-search.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     MentorComponent,
     AdminComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    UserHeaderComponent,
+    UserFooterComponent,
+    UserSearchComponent
   ],
   imports: [
     BrowserModule,
