@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-sm-1 px-5">
+        <a routerLink="/home"><img src="../../assets/images/logo.jpg" alt="hello" id="logo"></a>
+    </div>
+    <div class="col-sm-5 col-mx-0" id="logo-text">
+        <a class="navbar-brand" routerLink="/home">{{title}}</a>
+    </div>
+    <div class="col justify-content-end">
+        <ul class="nav justify-content-end navbar-dark">
+            <li class="nav-item text-white">
+                <a class="nav-link active" routerLink="/home" routerLinkActive="active"><i class='fas fa-home'></i> {{navLink1}}</a>
+            </li>
+            <li class="nav-item text-white">
+                <a class="nav-link active" routerLink="/home/sign-in" routerLinkActive="active"><i class="fas fa-user"></i>  Hi, {{user}}</a>
+            </li>
+        </ul>
+    </div>
+</div>

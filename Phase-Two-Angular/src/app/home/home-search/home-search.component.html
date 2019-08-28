@@ -2,9 +2,10 @@
     <div class="row justify-content-center">
         <p class="h3">Search for a Mentor</p>
     </div>
-    <div class="row  justify-content-center" id="search">
-        <div class="col-sm-3">
-            <select class="form-control" name="timeSlot">
+    <form name="searchForm" [formGroup]="searchMentor" (ngSubmit)="search()">
+        <div class="row  justify-content-center" id="search">
+            <div class="col-sm-3">
+                <select class="form-control" name="timeSlot" formControlName="timeSlot">
                     <option value="">-- Select time slot --</option>
                     <option value="1">09:00 AM - 11:00 AM</option>
                     <option value="2">10:00 AM - 12:00 PM</option>
@@ -15,16 +16,15 @@
                     <option value="7">09:00 PM - 11:00 PM</option>
                     <option value="8">10:00 PM - 12:00 PM</option>
                 </select>
-        </div>
-        <div class="col-md-4">
-            <form name="searchForm">
+            </div>
+            <div class="col-md-4">
                 <div class="input-group md-form form-sm form-2 pl-0">
-                    <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search" name="search-result" autofocus>
+                    <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search" name="search-result" formControlName="searchTechnology" autofocus>
                     <div class="input-group-append">
                         <button type="submit" class="input-group-text red lighten-3" id="basic-text1"><i class='fas fa-search'></i></button>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
-    </div>
+    </form>
 </div>

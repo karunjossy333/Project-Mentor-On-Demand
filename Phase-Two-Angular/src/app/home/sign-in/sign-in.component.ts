@@ -11,9 +11,9 @@ import { Router } from '@angular/router';
 export class SignInComponent implements OnInit {
 
   loginDetails = new FormGroup({
-    username : new FormControl('', Validators.required),
-    password : new FormControl('', Validators.required),
-    accountType : new FormControl('', Validators.required),
+    username: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
+    accountType: new FormControl('', Validators.required),
   });
   constructor(private router: Router) { }
 
@@ -21,7 +21,10 @@ export class SignInComponent implements OnInit {
   }
 
   validateLogIn() {
-    this.router.navigate(['/user']);
+    if (this.loginDetails.get('accountType').value == "Trainee") {
+      this.router.navigate(['/user/search']);
+    } else if (this.loginDetails.get('accountType').value == "Trainer") {
+      this.router.navigate(['/mentor/in-progress']);
+    }
   }
-
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 
 @Component({
@@ -8,13 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeSearchComponent implements OnInit {
 
+  searchMentor = new FormGroup({
+    searchTechnology : new FormControl(''),
+    timeSlot : new FormControl('')
+  });
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  searchMentor(){
-    alert("hello");
+  search() {
+    
   }
-
 }
