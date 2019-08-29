@@ -14,6 +14,12 @@ import { MentorEditSkillComponent } from './mentor/mentor-edit-skill/mentor-edit
 import { MentorPaymentsComponent } from './mentor/mentor-payments/mentor-payments.component';
 import { UserSignUpComponent } from './home/sign-up/user-sign-up/user-sign-up.component';
 import { MentorSignUpComponent } from './home/sign-up/mentor-sign-up/mentor-sign-up.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminSignInComponent } from './admin-sign-in/admin-sign-in.component';
+import { AdminEditTechnologyComponent } from './admin-edit-technology/admin-edit-technology.component';
+import { AdminPaymentReportComponent } from './admin-payment-report/admin-payment-report.component';
+import { AdminTrainingReportComponent } from './admin-training-report/admin-training-report.component';
+import { AdminManageAccountComponent } from './admin-manage-account/admin-manage-account.component';
 
 const routes: Routes = [{ path: '', redirectTo: "/home", pathMatch: 'full' },
 {
@@ -31,6 +37,13 @@ const routes: Routes = [{ path: '', redirectTo: "/home", pathMatch: 'full' },
   { path: 'completed', component: MentorCompletedComponent },
   { path: 'edit-skills', component: MentorEditSkillComponent },
   { path: 'payments', component: MentorPaymentsComponent }]
+},
+{
+  path: 'admin', component: AdminComponent, children: [{ path: '' , component: AdminSignInComponent},
+  { path: 'edit-technology' , component: AdminEditTechnologyComponent},
+  { path: 'payments' , component: AdminPaymentReportComponent},
+  { path: 'trainings' , component: AdminTrainingReportComponent},
+  { path: 'accounts' , component: AdminManageAccountComponent}]
 }];
 
 @NgModule({
