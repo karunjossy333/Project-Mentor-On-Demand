@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginServiceService } from '../login-service.service';
 
 @Component({
   selector: 'app-mentor',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MentorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loginService: LoginServiceService) { }
 
   ngOnInit() {
   }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginServiceService } from 'src/app/login-service.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -15,7 +16,8 @@ export class SignInComponent implements OnInit {
     password: new FormControl('', Validators.required),
     accountType: new FormControl('', Validators.required),
   });
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private loginService: LoginServiceService ) { }
 
   ngOnInit() {
   }
@@ -23,8 +25,10 @@ export class SignInComponent implements OnInit {
   validateLogIn() {
     if (this.loginDetails.get('accountType').value == "Trainee") {
       this.router.navigate(['/user/search']);
+      this.loginService.currentUser='user';
     } else if (this.loginDetails.get('accountType').value == "Trainer") {
       this.router.navigate(['/mentor/in-progress']);
+      this.loginService.currentUser='mentor';
     }
   }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginServiceService } from '../login-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-nav-bar',
@@ -7,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeNavBarComponent implements OnInit {
 
-  constructor() {}
+  constructor(private loginService: LoginServiceService,
+    private router: Router ) {}
 
   ngOnInit() {
   }
@@ -15,5 +18,10 @@ export class HomeNavBarComponent implements OnInit {
   title="Mentor On Demand";
   navLink1="Home";
   user="Guest User";
+
+  logOut() {
+    this.loginService.currentUser='guest';
+    this.router.navigate(['/home']);
+  }
 
 }
