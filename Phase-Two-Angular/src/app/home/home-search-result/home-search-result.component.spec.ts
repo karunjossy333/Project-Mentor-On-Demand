@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminNavBarComponent } from './admin-nav-bar.component';
+import { HomeSearchResultComponent } from './home-search-result.component';
 
-describe('AdminNavBarComponent', () => {
-  let component: AdminNavBarComponent;
-  let fixture: ComponentFixture<AdminNavBarComponent>;
+describe('HomeSearchResultComponent', () => {
+  let component: HomeSearchResultComponent;
+  let fixture: ComponentFixture<HomeSearchResultComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminNavBarComponent ]
+      declarations: [ HomeSearchResultComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdminNavBarComponent);
+    fixture = TestBed.createComponent(HomeSearchResultComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

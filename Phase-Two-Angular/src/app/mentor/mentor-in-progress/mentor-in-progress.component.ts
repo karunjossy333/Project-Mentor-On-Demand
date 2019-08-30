@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mentor-in-progress',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MentorInProgressComponent implements OnInit {
 
-  constructor() { }
+  searchTechnology = new FormGroup({
+    technology : new FormControl('')
+  });
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  search() {
+    if(this.searchTechnology.get('technology').value == 'spring' || this.searchTechnology.get('technology').value == 'Spring') {
+      this.router.navigate(['/mentor/in-progress/result']);
+    }
   }
 
 }

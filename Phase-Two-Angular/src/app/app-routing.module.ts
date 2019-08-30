@@ -15,31 +15,37 @@ import { MentorPaymentsComponent } from './mentor/mentor-payments/mentor-payment
 import { UserSignUpComponent } from './home/sign-up/user-sign-up/user-sign-up.component';
 import { MentorSignUpComponent } from './home/sign-up/mentor-sign-up/mentor-sign-up.component';
 import { AdminComponent } from './admin/admin.component';
-import { AdminSignInComponent } from './admin-sign-in/admin-sign-in.component';
-import { AdminEditTechnologyComponent } from './admin-edit-technology/admin-edit-technology.component';
-import { AdminPaymentReportComponent } from './admin-payment-report/admin-payment-report.component';
-import { AdminTrainingReportComponent } from './admin-training-report/admin-training-report.component';
-import { AdminManageAccountComponent } from './admin-manage-account/admin-manage-account.component';
+import { AdminSignInComponent } from './admin/admin-sign-in/admin-sign-in.component';
+import { AdminEditTechnologyComponent } from './admin/admin-edit-technology/admin-edit-technology.component';
+import { AdminPaymentReportComponent } from './admin/admin-payment-report/admin-payment-report.component';
+import { AdminTrainingReportComponent } from './admin/admin-training-report/admin-training-report.component';
+import { AdminManageAccountComponent } from './admin/admin-manage-account/admin-manage-account.component';
+import { HomeSearchResultComponent } from './home/home-search-result/home-search-result.component';
+import { UserSearchResultComponent } from './user/user-search-result/user-search-result.component';
+import { MentorProfileComponent } from './mentor/mentor-profile/mentor-profile.component';
+import { MentorResultComponent } from './mentor/mentor-result/mentor-result.component';
 
-const routes: Routes = [{ path: '', redirectTo: "/home", pathMatch: 'full' },
+const routes: Routes = [{ path: '', redirectTo: "/home/search", pathMatch: 'full' },
 {
-  path: 'home', children: [{ path: '', component: HomeSearchComponent },
+  path: 'home', children: [{ path: '', redirectTo: "/home/search", pathMatch: 'full' },
+  { path: 'search', component: HomeSearchComponent, children: [{ path: 'search-result', component: HomeSearchResultComponent}] },
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent, children: [{ path: 'user', component: UserSignUpComponent},
   { path: 'mentor', component: MentorSignUpComponent}] }]
 }, {
-  path: 'user', component: UserComponent, children: [{ path: 'search', component: UserSearchComponent },
+  path: 'user', component: UserComponent, children: [{ path: 'search', component: UserSearchComponent, children: [{ path: 'search-result', component: UserSearchResultComponent}] },
   { path: 'in-progress', component: UserInProgressComponent },
   { path: 'completed', component: UserCompletedComponent }]
 },
 {
-  path: 'mentor', component: MentorComponent, children: [{ path: 'in-progress', component: MentorInProgressComponent },
+  path: 'mentor', component: MentorComponent, children: [{ path: 'in-progress', component: MentorInProgressComponent, children: [{path: 'result', component: MentorResultComponent}] },
   { path: 'completed', component: MentorCompletedComponent },
   { path: 'edit-skills', component: MentorEditSkillComponent },
-  { path: 'payments', component: MentorPaymentsComponent }]
+  { path: 'payments', component: MentorPaymentsComponent },
+  { path: 'profile', component: MentorProfileComponent}]
 },
 {
-  path: 'admin', component: AdminComponent, children: [{ path: '' , component: AdminSignInComponent},
+  path: 'admin', component: AdminComponent, children: [{ path: 'sign-in' , component: AdminSignInComponent},
   { path: 'edit-technology' , component: AdminEditTechnologyComponent},
   { path: 'payments' , component: AdminPaymentReportComponent},
   { path: 'trainings' , component: AdminTrainingReportComponent},

@@ -33,3 +33,27 @@
         </div>
     </div>
 </div>
+
+<div *ngIf="loginService.currentUser == 'admin'">
+    <div class="container-fluid mt-3" id="footer">
+        <div class="col align-self-center">
+            <strong>
+                    <div class="footer-copyright text-center py-3">© 2019 Copyright :
+                        <a class="footer-brand" routerLink="/admin"> {{website}}</a>
+                    </div>
+                </strong>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="loginService.currentUser == 'adminSignedIn'">
+    <div class="container-fluid mt-3" id="footer">
+        <div class="col align-self-center">
+            <strong>
+                    <div class="footer-copyright text-center py-3">© 2019 Copyright :
+                        <a class="footer-brand" routerLink="/admin/edit-technology"> {{website}}</a>
+                    </div>
+                </strong>
+        </div>
+    </div>
+</div>

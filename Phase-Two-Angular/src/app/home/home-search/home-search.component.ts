@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginServiceService } from 'src/app/login-service.service';
 
 
 @Component({
@@ -14,12 +16,14 @@ export class HomeSearchComponent implements OnInit {
     timeSlot : new FormControl('')
   });
 
-  constructor() { }
+  constructor(private router: Router, private loginService: LoginServiceService) { }
 
   ngOnInit() {
   }
 
   search() {
-    
+    if(this.searchMentor.get('searchTechnology').value == 'spring' || this.searchMentor.get('searchTechnology').value == 'Spring') {
+      this.router.navigate(['/home/search/search-result']);
+    }
   }
 }
