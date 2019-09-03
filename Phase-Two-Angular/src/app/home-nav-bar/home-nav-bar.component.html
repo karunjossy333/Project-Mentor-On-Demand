@@ -12,7 +12,7 @@
                     <a class="nav-link active" routerLink="/home" routerLinkActive="active"><i class='fas fa-home'></i> {{navLink1}}</a>
                 </li>
                 <li class="nav-item text-white">
-                    <a class="nav-link active" routerLink="/home/sign-in" routerLinkActive="active"><i class="fas fa-user"></i>  Hi, {{user}}</a>
+                    <a class="nav-link active" routerLink="/home/sign-in" routerLinkActive="active"><i class="fas fa-user"></i>  Hi, {{loginService.userName}}</a>
                 </li>
             </ul>
         </div>
@@ -33,7 +33,7 @@
                     <a class="nav-link active" routerLink="/user/search"><i class='fas fa-home'></i>  Home</a>
                 </li>
                 <li class="nav-item text-white">
-                    <a class="nav-link active" routerLink="/user/search"><i class="fas fa-user"></i>  Hi, User</a>
+                    <a class="nav-link active" routerLink="/user/search"><i class="fas fa-user"></i>  Hi, {{loginService.userName}}</a>
                 </li>
                 <li class="nav-item text-white">
                     <a class="nav-link active" routerLink="/user/search"><i class="fas fa-bell"></i>  Notifications</a>
@@ -60,7 +60,7 @@
                     <a class="nav-link active" routerLink="/mentor/in-progress"><i class='fas fa-home'></i>  Home</a>
                 </li>
                 <li class="nav-item text-white">
-                    <a class="nav-link active" routerLink="/mentor/profile"><i class="fas fa-user"></i>  Hi, Mentor</a>
+                    <a class="nav-link active" routerLink="/mentor/profile"><i class="fas fa-user"></i>  Hi, {{loginService.userName}}</a>
                 </li>
                 <li class="nav-item text-white">
                     <a class="nav-link active" routerLink="/mentor/in-progress"><i class="fas fa-bell"></i>  Notifications</a>

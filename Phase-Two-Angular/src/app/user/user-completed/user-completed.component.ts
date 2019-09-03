@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { LoginServiceService } from 'src/app/login-service.service';
 
 @Component({
   selector: 'app-user-completed',
@@ -7,7 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserCompletedComponent implements OnInit {
 
-  constructor() { }
+  trainingData;
+
+  constructor(private http: HttpClient,
+    private loginService: LoginServiceService) {
+    this.http.get('/assets/trainings.json').subscribe(trainingdata => {
+      this.trainingData = trainingdata;
+    });
+   }
 
   ngOnInit() {
   }

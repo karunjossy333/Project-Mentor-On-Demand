@@ -21,6 +21,7 @@ export class HomeNavBarComponent implements OnInit {
 
   logOut() {
     this.loginService.currentUser='guest';
+    this.loginService.userName='Guest User';
     this.router.navigate(['/home']);
   }
 

@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserInProgressComponent implements OnInit {
 
+  trainingData;
   constructor() { }
 
   ngOnInit() {
