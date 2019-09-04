@@ -15,26 +15,20 @@
             <p class="h5">Action</p>
         </div>
     </div>
-    <div class="row p-3 border">
-        <div class="col-sm-4">
-            <p>Shwetha T</p>
-        </div>
-        <div class="col-sm-4">
-            <p>shwetha97@gmail.com</p>
-        </div>
-        <div class="col-sm-4">
-            <input type="button" class="btn btn-danger" id="user-1" value="Block">
-        </div>
-    </div>
-    <div class="row p-3 border">
-        <div class="col-sm-4">
-            <p>Joel Rajesh</p>
-        </div>
-        <div class="col-sm-4">
-            <p>rajesh.joel@gmail.com</p>
-        </div>
-        <div class="col-sm-4">
-            <input type="button" class="btn btn-primary" id="user-2" value="Unblock">
+    <div *ngFor="let data of userData; let i = index">
+        <div class="row p-3 border">
+            <div class="col-sm-4">
+                <p>{{data.name}}</p>
+            </div>
+            <div class="col-sm-4">
+                <p>{{data.username}}</p>
+            </div>
+            <div *ngIf="data.status == 'unblock'" class="col-sm-4">
+                <input type="button" (click)="userblock(i)" class="btn btn-danger" id="user-1" value="Block">
+            </div>
+            <div *ngIf="data.status == 'block'" class="col-sm-4">
+                <input type="button" (click)="userunblock(i)" class="btn btn-primary" id="user-2" value="Unblock">
+            </div>
         </div>
     </div>
 </div>
@@ -56,26 +50,20 @@
             <p class="h5">Action</p>
         </div>
     </div>
-    <div class="row p-3 border">
-        <div class="col-sm-4">
-            <p>Jacob Thomas</p>
-        </div>
-        <div class="col-sm-4">
-            <p>jacobthomas007@gmail.com</p>
-        </div>
-        <div class="col-sm-4">
-            <input type="button" class="btn btn-primary" id="user-3" value="Unblock">
-        </div>
-    </div>
-    <div class="row p-3 border">
-        <div class="col-sm-4">
-            <p>Joseph Mathew</p>
-        </div>
-        <div class="col-sm-4">
-            <p>josephmathew003@gmail.com</p>
-        </div>
-        <div class="col-sm-4">
-            <input type="button" class="btn btn-danger" id="user-4" value="Block">
+    <div *ngFor="let data of mentorData; let i = index">
+        <div class="row p-3 border">
+            <div class="col-sm-4">
+                <p>{{data.name}}</p>
+            </div>
+            <div class="col-sm-4">
+                <p>{{data.username}}</p>
+            </div>
+            <div *ngIf="data.status == 'unblock'" class="col-sm-4">
+                <input type="button" (click)="mentorblock(i)" class="btn btn-danger" id="user-1" value="Block">
+            </div>
+            <div *ngIf="data.status == 'block'" class="col-sm-4">
+                <input type="button" (click)="mentorunblock(i)" class="btn btn-primary" id="user-2" value="Unblock">
+            </div>
         </div>
     </div>
 </div>

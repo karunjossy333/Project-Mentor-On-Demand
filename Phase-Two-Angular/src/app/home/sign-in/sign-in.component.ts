@@ -18,13 +18,17 @@ export class SignInComponent implements OnInit {
     accountType: new FormControl('', Validators.required),
   });
 
+  isSuccess = false;
   userdata;
   userData;
   trainerData;
 
   constructor(private router: Router,
     private loginService: LoginServiceService,
-    private http: HttpClient) { }
+    private http: HttpClient) { 
+      loginService.currentUser = 'guest';
+      loginService.userName = 'Guest User';
+    }
 
   ngOnInit() {
   }
@@ -45,7 +49,7 @@ export class SignInComponent implements OnInit {
             return true;
           }
         }
-        alert("Wrong Credentials !!!");
+        this.isSuccess = true;
       });
     } else if (this.loginDetails.get('accountType').value == "Trainer") {
       this.http.get('/assets/trainers.json').subscribe(trainerdata => {
@@ -58,7 +62,7 @@ export class SignInComponent implements OnInit {
             return true;
           }
         }
-        alert("Wrong Credentials !!!");
+        this.isSuccess = true;
       });
     }
   }

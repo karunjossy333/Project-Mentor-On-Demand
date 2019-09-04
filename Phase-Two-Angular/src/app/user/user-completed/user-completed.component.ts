@@ -13,7 +13,7 @@ export class UserCompletedComponent implements OnInit {
 
   constructor(private http: HttpClient,
     private loginService: LoginServiceService) {
-    this.http.get('/assets/trainings.json').subscribe(trainingdata => {
+    this.http.get('/assets/user-trainings.json').subscribe(trainingdata => {
       this.trainingData = trainingdata;
     });
    }

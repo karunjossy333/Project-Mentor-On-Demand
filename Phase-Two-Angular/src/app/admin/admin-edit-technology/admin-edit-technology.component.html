@@ -13,49 +13,21 @@
             <p class="h4">Action</p>
         </div>
     </div>
-    <div class="row p-3 border">
-        <div class="col-sm-3">
-            <p>Spring</p>
-        </div>
-        <div class="col-sm-3">
-            <p>&#8377; 20,000</p>
-        </div>
-        <div class="col-sm-3">
-            <p>10%</p>
-        </div>
-        <div class="col-sm-3">
-            <button type="button" class="btn btn-info mr-2">Edit</button>
-            <button type="button" class="btn btn-danger">Delete</button>
-        </div>
-    </div>
-    <div class="row p-3 border">
-        <div class="col-sm-3">
-            <p>Angular</p>
-        </div>
-        <div class="col-sm-3">
-            <p>&#8377; 25,000</p>
-        </div>
-        <div class="col-sm-3">
-            <p>8%</p>
-        </div>
-        <div class="col-sm-3">
-            <button type="button" class="btn btn-info mr-2">Edit</button>
-            <button type="button" class="btn btn-danger">Delete</button>
-        </div>
-    </div>
-    <div class="row p-3 border">
-        <div class="col-sm-3">
-            <p>MySQL</p>
-        </div>
-        <div class="col-sm-3">
-            <p>&#8377; 30,000</p>
-        </div>
-        <div class="col-sm-3">
-            <p>12%</p>
-        </div>
-        <div class="col-sm-3">
-            <button type="button" class="btn btn-info mr-2">Edit</button>
-            <button type="button" class="btn btn-danger">Delete</button>
+    <div *ngFor="let data of technologyData">
+        <div class="row p-3 border">
+            <div class="col-sm-3">
+                <p>{{data.name}}</p>
+            </div>
+            <div class="col-sm-3">
+                <p>&#8377; {{data.fee}}</p>
+            </div>
+            <div class="col-sm-3">
+                <p>{{data.commission}}%</p>
+            </div>
+            <div class="col-sm-3">
+                <button type="button" class="btn btn-info mr-2">Edit</button>
+                <button type="button" class="btn btn-danger">Delete</button>
+            </div>
         </div>
     </div>
     <form name="">
