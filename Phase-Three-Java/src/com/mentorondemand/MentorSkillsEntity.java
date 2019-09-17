@@ -3,6 +3,7 @@ package com.mentorondemand;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,22 +12,58 @@ import javax.persistence.Table;
 public class MentorSkillsEntity {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="mentor_skill_id")
-	private int mentorSkillId;
-	@Column(name="mentor_id")
-	private int mentorId;
-	@Column(name="skill_id")
-	private int skillId;
+	private Integer mentorSkillId;
 	@Column(name="commission")
-	private float commission;
+	private Float commission;
 	@Column(name="mentor_fee")
-	private float mentorFee;
+	private Float mentorFee;
 	@Column(name="total_fee")
-	private float totalFee;
+	private Float totalFee;
 	
 	public MentorSkillsEntity() {
 		super();
+	}
+
+	public MentorSkillsEntity(Float commission,
+			Float mentorFee, Float totalFee) {
+		super();
+		this.commission = commission;
+		this.mentorFee = mentorFee;
+		this.totalFee = totalFee;
+	}
+
+	public Integer getMentorSkillId() {
+		return mentorSkillId;
+	}
+
+	public void setMentorSkillId(Integer mentorSkillId) {
+		this.mentorSkillId = mentorSkillId;
+	}
+
+	public Float getCommission() {
+		return commission;
+	}
+
+	public void setCommission(Float commission) {
+		this.commission = commission;
+	}
+
+	public Float getMentorFee() {
+		return mentorFee;
+	}
+
+	public void setMentorFee(Float mentorFee) {
+		this.mentorFee = mentorFee;
+	}
+
+	public Float getTotalFee() {
+		return totalFee;
+	}
+
+	public void setTotalFee(Float totalFee) {
+		this.totalFee = totalFee;
 	}
 
 }

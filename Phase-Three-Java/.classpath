@@ -12,5 +12,6 @@
 	<classpathentry kind="lib" path="C:/Users/Training/Downloads/hibernate-distribution-3.6.10.Final/lib/required/jta-1.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Training/Downloads/hibernate-distribution-3.6.10.Final/lib/required/slf4j-api-1.6.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Training/Downloads/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Training/Downloads/java-json.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
