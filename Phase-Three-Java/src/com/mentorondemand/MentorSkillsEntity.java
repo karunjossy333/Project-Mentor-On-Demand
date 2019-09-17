@@ -15,6 +15,8 @@ public class MentorSkillsEntity {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="mentor_skill_id")
 	private Integer mentorSkillId;
+	@Column(name="mentor_skill")
+	private Integer skillId;
 	@Column(name="commission")
 	private Float commission;
 	@Column(name="mentor_fee")
@@ -26,9 +28,9 @@ public class MentorSkillsEntity {
 		super();
 	}
 
-	public MentorSkillsEntity(Float commission,
-			Float mentorFee, Float totalFee) {
+	public MentorSkillsEntity(Integer mentorSkill, Float commission, Float mentorFee, Float totalFee) {
 		super();
+		this.skillId = mentorSkill;
 		this.commission = commission;
 		this.mentorFee = mentorFee;
 		this.totalFee = totalFee;

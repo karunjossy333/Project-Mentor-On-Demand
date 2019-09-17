@@ -1,5 +1,7 @@
 package com.mentorondemand;
 
+import java.util.ArrayList;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -25,8 +27,8 @@ public class Testing {
 //		ActorsEntity usr = new ActorsEntity("balakrishnan24@gmail.com", "p@ss1word", "trainer", true);
 //		ArrayList<MentorSkillsEntity> list = new ArrayList<MentorSkillsEntity>();
 //		
-//		MentorSkillsEntity skill1 = new MentorSkillsEntity(10.0f, 9000.0f, 10000.0f);
-//		MentorSkillsEntity skill2 = new MentorSkillsEntity(5.0f, 9500.0f, 10000.0f);
+//		MentorSkillsEntity skill1 = new MentorSkillsEntity( 2, 10.0f, 9000.0f, 10000.0f);
+//		MentorSkillsEntity skill2 = new MentorSkillsEntity( 1, 5.0f, 9500.0f, 10000.0f);
 //		list.add(skill1);
 //		list.add(skill2);
 //		obj.setMentorSkills(list);
@@ -36,8 +38,7 @@ public class Testing {
 		
 		//////////////////////////////////////////////////////////////////////////////////
 		
-		
-		
+				
 		
 		Configuration config = new Configuration();
 		config.configure("Config.xml");
