@@ -16,39 +16,31 @@ public class PaymentsEntity {
 	@GeneratedValue
 	@Column(name="payment_id")
 	private Integer paymentId;
-	@Column(name="training_id")
-	private Integer trainingId;
 	@Column(name="payment_date")
 	private Date paymentDate;
 	@Column(name="paid_amount")
 	private Float paidAmount;
 	
+//	@ManyToOne(targetEntity=TrainingsEntity.class)
+//	@JoinColumn(name="training_id")
+//	private TrainingsEntity training;
+	
+//	public void setTraining(TrainingsEntity training) {
+//		this.training = training;
+//	}
+
 	public PaymentsEntity() {
 		super();
 	}
 
-	public PaymentsEntity(Integer paymentId, Integer trainingId, Date paymentDate, Float paidAmount) {
+	public PaymentsEntity(Date paymentDate, Float paidAmount) {
 		super();
-		this.paymentId = paymentId;
-		this.trainingId = trainingId;
 		this.paymentDate = paymentDate;
 		this.paidAmount = paidAmount;
 	}
 
 	public Integer getPaymentId() {
 		return paymentId;
-	}
-
-	public void setPaymentId(Integer paymentId) {
-		this.paymentId = paymentId;
-	}
-
-	public Integer getTrainingId() {
-		return trainingId;
-	}
-
-	public void setTrainingId(Integer trainingId) {
-		this.trainingId = trainingId;
 	}
 
 	public Date getPaymentDate() {

@@ -1,10 +1,12 @@
 package com.mentorondemand;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,33 +17,28 @@ public class MentorSkillsEntity {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="mentor_skill_id")
 	private Integer mentorSkillId;
-	@Column(name="mentor_skill")
-	private Integer skillId;
 	@Column(name="commission")
 	private Float commission;
 	@Column(name="mentor_fee")
 	private Float mentorFee;
 	@Column(name="total_fee")
 	private Float totalFee;
+	@ManyToOne(cascade=CascadeType.ALL)  
+	private TechnologiesEntity technology;
 	
 	public MentorSkillsEntity() {
 		super();
 	}
 
-	public MentorSkillsEntity(Integer mentorSkill, Float commission, Float mentorFee, Float totalFee) {
+	public MentorSkillsEntity(Float commission, Float mentorFee, Float totalFee) {
 		super();
-		this.skillId = mentorSkill;
 		this.commission = commission;
 		this.mentorFee = mentorFee;
 		this.totalFee = totalFee;
 	}
 
-	public Integer getMentorSkillId() {
-		return mentorSkillId;
-	}
-
-	public void setMentorSkillId(Integer mentorSkillId) {
-		this.mentorSkillId = mentorSkillId;
+	public void setTechnology(TechnologiesEntity technology) {
+		this.technology = technology;
 	}
 
 	public Float getCommission() {

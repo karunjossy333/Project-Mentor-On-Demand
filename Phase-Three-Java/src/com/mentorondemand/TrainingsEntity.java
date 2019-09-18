@@ -1,11 +1,18 @@
 package com.mentorondemand;
 
 import java.sql.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name="trainings")
@@ -15,12 +22,6 @@ public class TrainingsEntity {
 	@GeneratedValue
 	@Column(name="training_id")
 	private Integer trainingId;
-	@Column(name="mentor_id")
-	private Integer mentorId;
-	@Column(name="user_id")
-	private Integer userId;
-	@Column(name="tech_id")
-	private Integer techId;
 	@Column(name="status")
 	private String status;
 	@Column(name="progress")
@@ -33,9 +34,56 @@ public class TrainingsEntity {
 	private Float commission;
 	@Column(name="start_date")
 	private Date startDate;
-	@Column(name="payment_date")
+	@Column(name="end_date")
 	private Date endDate;
 	
+	@OneToOne(targetEntity=TechnologiesEntity.class)
+	@JoinColumn(name="tech_id")
+	private TechnologiesEntity technology;	
+	
+	public void setTechnology(TechnologiesEntity technology) {
+		this.technology = technology;
+	}
+
+	@OneToOne(targetEntity=UserDetailsEntity.class)
+	@JoinColumn(name="user_id")
+	private UserDetailsEntity trainingUser;
+	
+	public void setTrainingUser(UserDetailsEntity trainingUser) {
+		this.trainingUser = trainingUser;
+	}
+
+	public void setTrainingMentor(MentorDetailsEntity trainingMentor) {
+		this.trainingMentor = trainingMentor;
+	}
+	
+	@OneToOne(targetEntity=MentorDetailsEntity.class)
+	@JoinColumn(name="mentor_id")
+	private MentorDetailsEntity trainingMentor;
+	
+	@ManyToMany(targetEntity = PaymentsEntity.class, cascade = { CascadeType.ALL })  
+	@JoinTable(name = "training_payments",   
+	            joinColumns = { @JoinColumn(name = "training_id") },   
+	            inverseJoinColumns = { @JoinColumn(name = "payment_id") })  
+	private List<PaymentsEntity> payments;
+	
+//	@OneToMany(cascade = CascadeType.ALL)  
+//	@JoinColumn(name="payment_id")
+//	private List<PaymentsEntity> payments;
+	
+	public void setPayments(List<PaymentsEntity> payments) {
+		this.payments = payments;
+	}
+
+	public TrainingsEntity(Float fees, Float commission, Date startDate) {
+		super();
+		this.status = "Booked for Training.";
+		this.progress = 0;
+		this.fees = fees;
+		this.commission = commission;
+		this.startDate = startDate;
+	}
+
 	public Date getStartDate() {
 		return startDate;
 	}
@@ -56,52 +104,12 @@ public class TrainingsEntity {
 		super();
 	}
 
-	public TrainingsEntity(Integer trainingId, Integer mentorId, Integer userId, Integer techId, String status,
-			Integer progress, Float fees, Float amountWithdrawn, Float commission, Date startDate, Date endDate) {
-		super();
-		this.trainingId = trainingId;
-		this.mentorId = mentorId;
-		this.userId = userId;
-		this.techId = techId;
-		this.status = status;
-		this.progress = progress;
-		this.fees = fees;
-		this.amountWithdrawn = amountWithdrawn;
-		this.commission = commission;
-		this.startDate = startDate;
-		this.endDate = endDate;
-	}
-
 	public Integer getTrainingId() {
 		return trainingId;
 	}
 
 	public void setTrainingId(Integer trainingId) {
 		this.trainingId = trainingId;
-	}
-
-	public Integer getMentorId() {
-		return mentorId;
-	}
-
-	public void setMentorId(Integer mentorId) {
-		this.mentorId = mentorId;
-	}
-
-	public Integer getUserId() {
-		return userId;
-	}
-
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
-
-	public Integer getTechId() {
-		return techId;
-	}
-
-	public void setTechId(Integer techId) {
-		this.techId = techId;
 	}
 
 	public String getStatus() {
