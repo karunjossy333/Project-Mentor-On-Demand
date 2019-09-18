@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 @Entity
@@ -45,7 +45,7 @@ public class TrainingsEntity {
 		this.technology = technology;
 	}
 
-	@OneToOne(targetEntity=UserDetailsEntity.class)
+	@ManyToOne(targetEntity=UserDetailsEntity.class)
 	@JoinColumn(name="user_id")
 	private UserDetailsEntity trainingUser;
 	
@@ -57,7 +57,7 @@ public class TrainingsEntity {
 		this.trainingMentor = trainingMentor;
 	}
 	
-	@OneToOne(targetEntity=MentorDetailsEntity.class)
+	@ManyToOne(targetEntity=MentorDetailsEntity.class)
 	@JoinColumn(name="mentor_id")
 	private MentorDetailsEntity trainingMentor;
 	

@@ -12,4 +12,5 @@ public class MentorCalenderEntity {
 	@Id
 	@Column(name="calender_id")
 	private Integer calenderId;
+	
 }

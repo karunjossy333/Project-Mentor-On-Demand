@@ -20,12 +20,12 @@ public class Testing {
 		Transaction t = s.getTransaction();
 		
 		TechnologiesEntity technology = new TechnologiesEntity();
-		technology.setTechName("Java");
+		technology.setTechName("HTML");
 		
 		///////////////////////////////////////////////////////////////////////////////////
 		
-		UserDetailsEntity user = new UserDetailsEntity("Arnab", "arnab007@gmail.com", "9876543210");
-		ActorsEntity actor1 = new ActorsEntity("arnab007@gmail.com", "pass1word", "trainee", true);
+		UserDetailsEntity user = new UserDetailsEntity("Karun", "karunjossy333@gmail.com", "8281402261");
+		ActorsEntity actor1 = new ActorsEntity("karunjossy333@gmail.com", "pass1word", "trainee", true);
 		user.setActor(actor1);
 		actor1.setUserDetails(user);
 		
@@ -48,7 +48,7 @@ public class Testing {
 		
 		//////////////////////////////////////////////////////////////////////////////////
 		
-		Date date=Date.valueOf("2015-03-30");
+		Date date=Date.valueOf("2019-03-30");
 		TrainingsEntity training = new TrainingsEntity(10000.0f, 10.0f, date);
 		
 		
@@ -61,7 +61,7 @@ public class Testing {
             training.setTrainingUser(user);
             
             ArrayList<PaymentsEntity> list = new ArrayList<PaymentsEntity>();
-            PaymentsEntity payments = new PaymentsEntity(date, 2000.0f);
+            PaymentsEntity payments = new PaymentsEntity(date, 5000.0f);
             list.add(payments);
             training.setPayments(list);
 //            payments.setTraining(training);
