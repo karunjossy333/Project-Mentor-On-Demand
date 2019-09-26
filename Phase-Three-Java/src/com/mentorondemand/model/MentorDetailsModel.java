@@ -1,54 +1,21 @@
-package com.mentorondemand;
+package com.mentorondemand.model;
 
-import java.util.List;
+public class MentorDetailsModel {
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="mentor_details")
-public class MentorDetailsEntity {
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="mentor_id")
 	private Integer mentorId;
-	@Column(name="mentor_name")
 	private String mentorName;
-	@Column(name="mentor_email")
 	private String mentorEmail;
-	@Column(name="mentor_years_exp")
 	private Integer mentorYearsExp;
-	@Column(name="mentor_linkdin_url")
 	private String mentorLinkdinUrl;
-	@Column(name="mentor_phone")
 	private String mentorPhone;
-	@Column(name="no_of_trainings")
 	private Integer trainings;
-	@Column(name="rating")
 	private float rating;
 	
-	@OneToOne(targetEntity=ActorsEntity.class,cascade=CascadeType.ALL)
-	@JoinColumn(name="actor_id")
-	private ActorsEntity actor;
-	
-	@OneToMany(cascade = CascadeType.ALL)  
-	@JoinColumn(name="mentor_id")
-	private List<MentorSkillsEntity> mentorSkills;
-	
-	public MentorDetailsEntity() {
+	public MentorDetailsModel() {
 		super();
 	}
 
-	public MentorDetailsEntity(String mentorName, String mentorEmail,
+	public MentorDetailsModel(String mentorName, String mentorEmail,
 			Integer mentorYearsExp, String mentorLinkdinUrl, String mentorPhone, Integer trainings) {
 		super();
 		this.mentorName = mentorName;
@@ -57,14 +24,6 @@ public class MentorDetailsEntity {
 		this.mentorLinkdinUrl = mentorLinkdinUrl;
 		this.mentorPhone = mentorPhone;
 		this.trainings = trainings;
-	}
-
-	public void setMentorSkills(List<MentorSkillsEntity> mentorSkills) {
-		this.mentorSkills = mentorSkills;
-	}
-
-	public void setActor(ActorsEntity actor) {
-		this.actor = actor;
 	}
 
 	public Integer getMentorId() {

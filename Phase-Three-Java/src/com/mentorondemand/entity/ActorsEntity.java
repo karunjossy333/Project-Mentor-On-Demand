@@ -1,4 +1,4 @@
-package com.mentorondemand;
+package com.mentorondemand.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
