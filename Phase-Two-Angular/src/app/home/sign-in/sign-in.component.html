@@ -1,5 +1,5 @@
 <div class="container">
-    <div *ngIf="isSuccess" class="alert alert-danger mt-3" role="alert">
+    <div *ngIf="isFailed" class="alert alert-danger mt-3" role="alert">
         <div class="row justify-content-center">
             <div class="col">
                 Invalid login Credentials !!!!!
@@ -27,8 +27,8 @@
                             <label for="account-type">Select account type :</label>
                             <select class="form-control" id="account-type" name="account-type" formControlName="accountType">
                                 <option value="" selected>-- select account type --</option>
-                                <option value="Trainee">Trainee</option>
-                                <option value="Trainer">Trainer</option>
+                                <option value="trainee">Trainee</option>
+                                <option value="trainer">Trainer</option>
                             </select>
                         </div>
                         <!-- form-group// -->

@@ -1,4 +1,4 @@
-package com.mentorondemand;
+package com.mentorondemand.entity;
 
 import javax.persistence.*;
 
@@ -35,7 +35,6 @@ public class ActorsEntity {
 	public ActorsEntity() {
 		super();
 	}
-
 
 	public ActorsEntity(String actorEmail, String actorPassword, String actorType, Boolean actorStatus) {
 		super();
@@ -92,5 +91,7 @@ public class ActorsEntity {
 	public void setActorStatus(Boolean actorStatus) {
 		this.actorStatus = actorStatus;
 	}
+
+
 	
 }

@@ -4,6 +4,8 @@ import { Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginServiceService } from 'src/app/login-service.service';
 import { HttpClient } from '@angular/common/http';
+import { User } from 'src/app/User';
+import { Actor } from 'src/app/Actor';
 
 @Component({
   selector: 'app-sign-in',
@@ -18,10 +20,12 @@ export class SignInComponent implements OnInit {
     accountType: new FormControl('', Validators.required),
   });
 
-  isSuccess = false;
+  isFailed = false;
   userdata;
   userData;
   trainerData;
+  actor : Actor;
+  user : User;
 
   constructor(private router: Router,
     private loginService: LoginServiceService,
@@ -38,32 +42,22 @@ export class SignInComponent implements OnInit {
       this.router.navigate(['/admin']);
       this.loginService.currentUser = 'admin';
     }
-    if (this.loginDetails.get('accountType').value == "Trainee") {
-      this.http.get('/assets/users.json').subscribe(userdata => {
-        this.userData = userdata;
-        for (let i = 0; i < 3; i++) {
-          if (this.userData[i].username == this.loginDetails.get('username').value && this.loginDetails.get('password').value == this.userData[i].password) {
+    this.loginService.getActorCred(this.loginDetails.get('username').value, this.loginDetails.get('accountType').value).subscribe(data => {
+      this.actor = data;
+      if(this.actor != null) {
+        if(this.actor.actorType == 'trainee') {
+          if(this.loginDetails.get('username').value == this.actor.actorEmail && this.loginDetails.get('password').value == this.actor.actorPassword) {          this.loginService.currentUser = 'user';
+            this.loginService.getUserCred(this.actor.actorEmail).subscribe(data => {
+              this.user = data;
+              this.loginService.userName = this.user.userName;
+            })
             this.router.navigate(['/user/search']);
-            this.loginService.currentUser = 'user';
-            this.loginService.userName = this.userData[i].name;
             return true;
           }
         }
-        this.isSuccess = true;
-      });
-    } else if (this.loginDetails.get('accountType').value == "Trainer") {
-      this.http.get('/assets/trainers.json').subscribe(trainerdata => {
-        this.trainerData = trainerdata;
-        for (let i = 0; i < 2; i++) {
-          if (this.trainerData[i].username == this.loginDetails.get('username').value && this.loginDetails.get('password').value == this.trainerData[i].password) {
-            this.router.navigate(['/mentor/in-progress']);
-            this.loginService.currentUser = 'mentor';
-            this.loginService.userName = this.trainerData[i].name;
-            return true;
-          }
-        }
-        this.isSuccess = true;
-      });
-    }
+      } else {
+        this.isFailed = true;
+      }
+    })
   }
 }

@@ -1,15 +1,29 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Actor } from './Actor';
+import { User } from './User';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginServiceService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
+
+  private baseUrl = 'http://localhost:8081/user/';
 
   isLoggedIn = false;
   currentUser = 'guest';
-  userName = 'Guest User';
+  userName : String = 'Guest User';
+
+  getActorCred(userName:String, accountType:String): Observable<Actor>{
+    return this.http.get<Actor>(`${this.baseUrl}`+'login/'+ accountType + '/' + userName);  
+  }
+
+  getUserCred(userName:String): Observable<User>{
+    return this.http.get<User>(`${this.baseUrl}`+'login/details/'+userName);  
+  }
 
   userLogin(name) {
     this.currentUser = 'user';

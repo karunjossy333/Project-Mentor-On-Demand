@@ -1,5 +1,8 @@
 package com.mentorondemand;
 
+import com.mentorondemand.entity.ActorsEntity;
+import com.mentorondemand.entity.UserDetailsEntity;
+import com.mentorondemand.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,6 +34,16 @@ public class UserController {
     @RequestMapping(method=RequestMethod.DELETE, value="/delete/{id}")
     public void deleteStates(@PathVariable Integer id) {
         userService.deleteUser(id);
+    }
+
+    @RequestMapping("/login/{accountType}/{userName}")
+    public ActorsEntity getUserCred(@PathVariable String accountType, @PathVariable String userName){
+        return userService.getUsersUserName(accountType, userName);
+    }
+
+    @RequestMapping("/login/details/{userName}")
+    public UserDetailsEntity getUserName(@PathVariable String userName){
+        return userService.getUserName(userName);
     }
 
 }

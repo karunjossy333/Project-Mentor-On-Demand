@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { User } from './user';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class UserSignupService {
 
   constructor(private http:HttpClient) { }
 
-  createUser(user: object): Observable<object> {  
+  createUser(user: User): Observable<Object> {  
     return this.http.post(`${this.baseUrl}`+'signup', user);  
   }
 

@@ -1,5 +1,9 @@
-package com.mentorondemand;
+package com.mentorondemand.service;
 
+import com.mentorondemand.entity.ActorsEntity;
+import com.mentorondemand.entity.UserDetailsEntity;
+import com.mentorondemand.repository.ActorsRepository;
+import com.mentorondemand.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +33,14 @@ public class UserService {
         act.setUserDetails(usr);
         user.save(usr);
         actor.save(act);
+    }
+
+    public ActorsEntity getUsersUserName(String accountType, String userName) {
+        return actor.searchUserName(accountType, userName);
+    }
+
+    public UserDetailsEntity getUserName(String userName) {
+        return user.searchUserName(userName);
     }
 
     public void deleteUser(Integer id) {
