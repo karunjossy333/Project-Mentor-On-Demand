@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { SignupService } from 'src/app/signup.service';
+import { Actor } from 'src/app/actor';
+import { Trainer } from 'src/app/trainer';
+import { Mentorcalender } from 'src/app/mentorcalender';
 
 @Component({
   selector: 'app-mentor-sign-up',
@@ -16,17 +20,28 @@ export class MentorSignUpComponent implements OnInit {
     fullName: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required,Validators.email]),
     phoneNumber: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
     years: new FormControl('', Validators.required),
+    videoFacility: new FormControl('', Validators.required),
+    presentationFacility: new FormControl('', Validators.required),
+    linkdin: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
     confirmPassword: new FormControl('', Validators.required)
   });
 
-  constructor() { }
+  constructor(private signupService: SignupService) { }
 
   ngOnInit() {
   }
 
+  actor : Actor = new Actor();
+  trainer : Trainer = new Trainer();
+  calender : Mentorcalender[];
+
   register() {
+
+    console.log(this.registerDetails.get('videoFacility').value);
+    console.log(this.registerDetails.get('presentationFacility').value);
+
     if(this.registerDetails.get('fullName').value == '') {
       this.message = "Name Required !!!!";
       this.isFailed = true;
@@ -51,6 +66,27 @@ export class MentorSignUpComponent implements OnInit {
       this.isFailed = true;
       this.isSuccess = false;
     }
+
+    if(this.isSuccess == true) {
+      this.actor.actorEmail = this.registerDetails.get('email').value;
+      this.actor.actorPassword = this.registerDetails.get('password').value;
+      this.actor.actorStatus = true;
+      this.actor.actorType = "trainer";
+
+      this.trainer.trainerEmail = this.registerDetails.get('email').value;
+      this.trainer.trainerName = this.registerDetails.get('fullName').value;
+      this.trainer.trainerPhone = this.registerDetails.get('phoneNumber').value;
+      this.trainer.trainerYears = this.registerDetails.get('years').value;
+      this.trainer.trainerLinkdin = this.registerDetails.get('linkdin').value;
+      this.trainer.actor = this.actor;
+      
+      this.createTrainer();
+
+    }
+  }
+
+  createTrainer() {
+    this.signupService.createTrainer(this.trainer).subscribe(data => console.log(data), error => console.log(error));
   }
 
 }

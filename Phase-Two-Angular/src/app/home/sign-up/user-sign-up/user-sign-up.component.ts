@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { UserSignupService } from '../../../user-signup.service';
+import { SignupService } from '../../../signup.service';
 import { Actor } from 'src/app/actor';
 import { User } from 'src/app/user';
 
@@ -23,9 +23,9 @@ export class UserSignUpComponent implements OnInit {
     confirmPassword: new FormControl('', Validators.required)
   });
 
-  constructor(private userSignupService: UserSignupService) { }
+  constructor(private signupService: SignupService) { }
 
-  actor : Actor = new Actor();
+  userActor : Actor = new Actor();
   user : User = new User();
 
 
@@ -58,22 +58,22 @@ export class UserSignUpComponent implements OnInit {
       this.isSuccess = false;
     }
     if(this.isSuccess == true) {
-      this.actor.actorEmail = this.registerDetails.get('email').value;
-      this.actor.actorPassword = this.registerDetails.get('password').value;
-      this.actor.actorStatus = true;
-      this.actor.actorType = "trainee";
+      this.userActor.actorEmail = this.registerDetails.get('email').value;
+      this.userActor.actorPassword = this.registerDetails.get('password').value;
+      this.userActor.actorStatus = true;
+      this.userActor.actorType = "trainee";
 
       this.user.userEmail = this.registerDetails.get('email').value;
       this.user.userName = this.registerDetails.get('fullName').value;
       this.user.userPhone = this.registerDetails.get('phoneNumber').value;
-      this.user.actor = this.actor;
+      this.user.actor = this.userActor;
 
       this.createUser();
     }
   }
 
   createUser() {
-    this.userSignupService.createUser(this.user).subscribe(data => console.log(data), error => console.log(error));
+    this.signupService.createUser(this.user).subscribe(data => console.log(data), error => console.log(error));
   }
 
 }

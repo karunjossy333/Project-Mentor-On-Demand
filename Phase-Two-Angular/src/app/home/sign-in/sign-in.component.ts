@@ -4,8 +4,8 @@ import { Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginServiceService } from 'src/app/login-service.service';
 import { HttpClient } from '@angular/common/http';
-import { User } from 'src/app/User';
-import { Actor } from 'src/app/Actor';
+import { User } from 'src/app/user';
+import { Actor } from 'src/app/actor';
 
 @Component({
   selector: 'app-sign-in',
@@ -21,6 +21,7 @@ export class SignInComponent implements OnInit {
   });
 
   isFailed = false;
+  message: String;
   userdata;
   userData;
   trainerData;
@@ -44,19 +45,25 @@ export class SignInComponent implements OnInit {
     }
     this.loginService.getActorCred(this.loginDetails.get('username').value, this.loginDetails.get('accountType').value).subscribe(data => {
       this.actor = data;
-      if(this.actor != null) {
+      if(this.actor == null || this.actor.actorStatus == false) {
+        if(this.actor == null) {
+          this.message = 'Invalid login Credentials';
+        } else{
+          this.message = 'Account is blocked';
+        }
+        this.isFailed = true;
+      } else {
         if(this.actor.actorType == 'trainee') {
           if(this.loginDetails.get('username').value == this.actor.actorEmail && this.loginDetails.get('password').value == this.actor.actorPassword) {          this.loginService.currentUser = 'user';
             this.loginService.getUserCred(this.actor.actorEmail).subscribe(data => {
               this.user = data;
               this.loginService.userName = this.user.userName;
+              this.loginService.currentUser = 'user';
             })
             this.router.navigate(['/user/search']);
             return true;
           }
         }
-      } else {
-        this.isFailed = true;
       }
     })
   }
