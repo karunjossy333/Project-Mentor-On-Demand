@@ -1,10 +1,4 @@
 <div id="trainer-reg" class="container pl-5 pb-3">
-    <div *ngIf="isFailed" class="alert alert-danger mt-3" role="alert">
-        {{message}}
-    </div>
-    <div *ngIf="isSuccess" class="alert alert-success mt-3" role="alert">
-        Account Successfully Created !! <button class="btn btn-success" routerLink="/home/sign-in">Log In</button>
-    </div>
     <form class="md-form col-6 mt-3">
         <div class="file-field">
             <div class="mb-4">
@@ -67,13 +61,6 @@
         </div>
 
         <div class="form-group">
-            <label class="theme-color-5">Facilities Provided</label> <br>
-            <input type="checkbox" id="material-video" class=" form-check-inline mr-2 ml-2" min="0" formControlName="videoFacility">
-            <label for="material-video">Videos</label>
-            <input type="checkbox" id="matrial-ppt" class=" form-check-inline mr-2 ml-2" min="0" formControlName="presentationFacility">
-            <label for="matrial-ppt">Presentations</label>
-        </div>
-        <div class="form-group">
             <label for="profile" class="theme-color-5">LinkedIn Profile</label>
             <input type="text" class="form-control" id="profile" min="0" placeholder="LinkedIn Profile Url" formControlName="linkdin">
         </div>
@@ -107,4 +94,10 @@
         </div>
 
     </form>
+    <div *ngIf="isFailed" class="alert alert-danger mt-3" role="alert">
+        {{message}}
+    </div>
+    <div *ngIf="isSuccess" class="alert alert-success mt-3" role="alert">
+        Account Successfully Created !! <button class="btn btn-success" routerLink="/home/sign-in">Log In</button>
+    </div>
 </div>

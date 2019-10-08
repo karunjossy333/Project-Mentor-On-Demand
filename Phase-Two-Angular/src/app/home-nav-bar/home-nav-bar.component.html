@@ -19,7 +19,7 @@
     </div>
 </div>
 
-<div *ngIf="loginService.currentUser == 'user'">
+<div *ngIf="loginService.currentUser == 'trainee'">
     <div class="row">
         <div class="col-sm-1 px-5">
             <a routerLink="/user/search"><img src="../../assets/images/logo.jpg" alt="" id="logo"></a>
@@ -46,7 +46,7 @@
     </div>
 </div>
 
-<div *ngIf="loginService.currentUser == 'mentor'">
+<div *ngIf="loginService.currentUser == 'trainer'">
     <div class="row">
         <div class="col-sm-1 px-5">
             <a routerLink="/mentor/in-progress"><img src="../../assets/images/logo.jpg" alt="" id="logo"></a>

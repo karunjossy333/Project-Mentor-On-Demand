@@ -35,12 +35,8 @@ export class MentorSignUpComponent implements OnInit {
 
   actor : Actor = new Actor();
   trainer : Trainer = new Trainer();
-  calender : Mentorcalender[];
 
   register() {
-
-    console.log(this.registerDetails.get('videoFacility').value);
-    console.log(this.registerDetails.get('presentationFacility').value);
 
     if(this.registerDetails.get('fullName').value == '') {
       this.message = "Name Required !!!!";
@@ -73,11 +69,12 @@ export class MentorSignUpComponent implements OnInit {
       this.actor.actorStatus = true;
       this.actor.actorType = "trainer";
 
-      this.trainer.trainerEmail = this.registerDetails.get('email').value;
-      this.trainer.trainerName = this.registerDetails.get('fullName').value;
-      this.trainer.trainerPhone = this.registerDetails.get('phoneNumber').value;
-      this.trainer.trainerYears = this.registerDetails.get('years').value;
-      this.trainer.trainerLinkdin = this.registerDetails.get('linkdin').value;
+      this.trainer.mentorEmail = this.registerDetails.get('email').value;
+      this.trainer.mentorName = this.registerDetails.get('fullName').value;
+      this.trainer.mentorPhone = this.registerDetails.get('phoneNumber').value;
+      this.trainer.mentorYearsExp = this.registerDetails.get('years').value;
+      this.trainer.mentorLinkdin = this.registerDetails.get('linkdin').value;
+        
       this.trainer.actor = this.actor;
       
       this.createTrainer();

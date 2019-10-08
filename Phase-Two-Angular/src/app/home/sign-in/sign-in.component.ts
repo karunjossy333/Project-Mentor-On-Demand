@@ -6,6 +6,7 @@ import { LoginServiceService } from 'src/app/login-service.service';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/user';
 import { Actor } from 'src/app/actor';
+import { Trainer } from 'src/app/trainer';
 
 @Component({
   selector: 'app-sign-in',
@@ -27,6 +28,7 @@ export class SignInComponent implements OnInit {
   trainerData;
   actor : Actor;
   user : User;
+  trainer : Trainer;
 
   constructor(private router: Router,
     private loginService: LoginServiceService,
@@ -54,13 +56,24 @@ export class SignInComponent implements OnInit {
         this.isFailed = true;
       } else {
         if(this.actor.actorType == 'trainee') {
-          if(this.loginDetails.get('username').value == this.actor.actorEmail && this.loginDetails.get('password').value == this.actor.actorPassword) {          this.loginService.currentUser = 'user';
+          if(this.loginDetails.get('username').value == this.actor.actorEmail && this.loginDetails.get('password').value == this.actor.actorPassword) {          
+            this.loginService.currentUser = 'trainee';
             this.loginService.getUserCred(this.actor.actorEmail).subscribe(data => {
               this.user = data;
               this.loginService.userName = this.user.userName;
-              this.loginService.currentUser = 'user';
             })
             this.router.navigate(['/user/search']);
+            return true;
+          }
+        } else if(this.actor.actorType == 'trainer') {
+          if(this.loginDetails.get('username').value == this.actor.actorEmail && this.loginDetails.get('password').value == this.actor.actorPassword) {          
+            this.loginService.currentUser = 'trainer';
+            this.loginService.getTrainerCred(this.actor.actorEmail).subscribe(data => {
+              this.trainer = data;
+              this.loginService.userName = String(this.trainer.mentorName);
+              console.log(data);
+            })
+            this.router.navigate(['/mentor/in-progress']);
             return true;
           }
         }

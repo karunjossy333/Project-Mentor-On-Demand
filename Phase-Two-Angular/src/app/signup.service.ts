@@ -9,16 +9,16 @@ import { Trainer } from './trainer';
 })
 export class SignupService {
 
-  private baseUrl = 'http://localhost:8081/';
+  private baseUrl = 'http://localhost:8200/api';
 
   constructor(private http:HttpClient) { }
 
   createUser(user: User): Observable<Object> {  
-    return this.http.post(`${this.baseUrl}`+'/user/signup', user);  
+    return this.http.post(`${this.baseUrl}`+'/auth/user/signup', user);  
   }
 
   createTrainer(trainer: Trainer): Observable<Object> {  
-    return this.http.post(`${this.baseUrl}`+'/trainer/signup', trainer);  
+    return this.http.post(`${this.baseUrl}`+'/auth/mentor/signup', trainer);  
   }
 
 }
